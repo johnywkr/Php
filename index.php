@@ -1,7 +1,15 @@
 <?php
 
-    $dsn = 'mysql:host=localhost;dbname=php_com_pdo';
+    $dsn = 'mysql:host=localhost;dbname=xphp_com_pdo';
     $usuario = 'root';
     $senha = '';
     
-    $conexao = new PDO($dsn, $usuario, $senha);
+    //try vai tentar fazer a conexao, se der errado catch vai retornar o error.
+    try{
+        $conexao = new PDO($dsn, $usuario, $senha);
+    } catch(PDOException $e){                           //$e de erro!
+        echo '<pre>';
+        print_r($e);
+        echo '</pre>';
+    }
+    
