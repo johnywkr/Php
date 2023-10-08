@@ -22,11 +22,7 @@
         echo $retorno;
 
         $query = '
-            insert into tb_usuarios(
-                nome,email,senha
-            )values (
-                "johne A Corte", "johne@gmail.com", "123123"
-            )
+           delete from tb_usuarios
         ';
 
         $retorno = $conexao->exec($query);
