@@ -9,7 +9,7 @@
     try{
         $conexao = new PDO($dsn, $usuario, $senha);
 
-        $query = '
+        /*$query = '
             create table if not exists tb_usuarios(
                 id int not null primary key auto_increment,
                 nome varchar(50) not null,
@@ -19,14 +19,38 @@
 
         $retorno = $conexao->exec($query);
         //0
-        echo $retorno;
+        echo $retorno; */
 
         $query = '
-           delete from tb_usuarios
+           insert into tb_usuarios(
+                nome, email, senha
+           )values(
+                "jamiltom damasceno", "jamiltom@gmail.com", "123456"
+           )
         ';
 
-        $retorno = $conexao->exec($query);
-        echo $retorno;
+        $conexao->exec($query);
+
+        $query = '
+           insert into tb_usuarios(
+                nome, email, senha
+           )values(
+                "lucas", "lucas@gmail.com", "987654"
+           )
+        ';
+
+        $conexao->exec($query);
+
+        $query = '
+           insert into tb_usuarios(
+                nome, email, senha
+           )values(
+                "kety", "kety@gmail.com", "123123"
+           )
+        ';
+
+        $conexao->exec($query);
+        
 
     } catch(PDOException $e){                           //$e de erro!
         echo 'Erro ' . $e->getCode() .'Mensagem: ' . $e->getMessage(); 
