@@ -8,8 +8,7 @@
     try{
         $conexao = new PDO($dsn, $usuario, $senha);
     } catch(PDOException $e){                           //$e de erro!
-        echo '<pre>';
-        print_r($e);
-        echo '</pre>';
+        echo 'Erro ' . $e->getCode() .'Mensagem: ' . $e->getMessage(); 
+        //registrar erro
     }
     
